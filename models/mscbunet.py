@@ -163,7 +163,7 @@ class MultiScalePAM(nn.Module):
         
         return self.gamma * out + x
 
-class MPCBAM(nn.Module):
+class META(nn.Module):
     def __init__(self, in_channels, ratio=8, ablation_config=None):
         super().__init__()
         if ablation_config is None:
@@ -397,7 +397,7 @@ class MSCB_UNet(nn.Module):
             nn.BatchNorm2d(base_c),
             nn.Dropout2d(0.15),
             InceptionDWConv2d(base_c),
-            MPCBAM(base_c),
+            META(base_c),
             nn.GELU()
         )
         
@@ -407,7 +407,7 @@ class MSCB_UNet(nn.Module):
             nn.BatchNorm2d(base_c*2),
             nn.Dropout2d(0.15),
             InceptionDWConv2d(base_c*2),
-            MPCBAM(base_c*2),
+            META(base_c*2),
             nn.GELU()
         )
         
@@ -417,7 +417,7 @@ class MSCB_UNet(nn.Module):
             nn.BatchNorm2d(base_c*4),
             nn.Dropout2d(0.15),
             InceptionDWConv2d(base_c*4),
-            MPCBAM(base_c*4),
+            META(base_c*4),
             nn.GELU()
         )
         
@@ -427,7 +427,7 @@ class MSCB_UNet(nn.Module):
             nn.BatchNorm2d(base_c*8),
             nn.Dropout2d(0.15),
             InceptionDWConv2d(base_c*8),
-            MPCBAM(base_c*8),
+            META(base_c*8),
             nn.GELU()
         )
         
@@ -437,7 +437,7 @@ class MSCB_UNet(nn.Module):
             nn.BatchNorm2d(base_c*16),
             nn.Dropout2d(0.15),
             InceptionDWConv2d(base_c*16),
-            MPCBAM(base_c*16),
+            META(base_c*16),
             nn.GELU()
         )
         
@@ -448,7 +448,7 @@ class MSCB_UNet(nn.Module):
             nn.BatchNorm2d(base_c*32),
             nn.Dropout2d(0.15),
             InceptionDWConv2d(base_c*32),
-            MPCBAM(base_c*32),
+            META(base_c*32),
             nn.GELU()
         )
         
@@ -512,7 +512,7 @@ class MSCB_UNet(nn.Module):
         
         # Final Refinement
         self.final = nn.Sequential(
-            MPCBAM(base_c),
+            META(base_c),
             nn.Conv2d(base_c, num_classes, kernel_size=1)
         )
         
