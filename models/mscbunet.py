@@ -124,7 +124,7 @@ class MultiScalePAM(nn.Module):
 
 class META(nn.Module):
     def __init__(self, in_channels, ratio=8):
-        super(MPCBAM, self).__init__()
+        super(META, self).__init__()
         self.ms_channel_attention = MultiScaleChannelAttention(in_channels, ratio)
         self.ms_spatial_attention = MultiScaleSpatialAttention()
         self.ms_position_attention = MultiScalePAM(in_channels)
@@ -260,7 +260,7 @@ class MS_CDFA(nn.Module):
         x_weighted = self.proj_drop(x_weighted)
         return x_weighted
 
-class CDI_UNet(nn.Module):
+class MSCB_UNet(nn.Module):
     def __init__(self, in_channels=3, num_classes=1, base_c=64):
         super().__init__()
         
