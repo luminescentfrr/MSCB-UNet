@@ -1,6 +1,6 @@
 # MSCB-UNet
 
-Train the MSCB-UNett.**
+Train the MSCB-UNet.
 ```
 cd MSCB-UNet
 ```
