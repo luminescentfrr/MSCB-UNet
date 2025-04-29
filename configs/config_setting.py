@@ -21,7 +21,7 @@ class setting_config:
     }
 
     # Dataset configuration
-    project_root = '/autodl-fs/data/CDIUNet/'
+    project_root = '/autodl-fs/data/MSCB-UNet/'
     # Dataset configuration
     datasets = 'isic18'
     if datasets == 'isic17':
@@ -46,8 +46,8 @@ class setting_config:
     # Modify working directory configuration
     if os.path.exists('/root/autodl-tmp'):  # AutoDL environment
         # Create a symbolic link to the original directory
-        original_base_dir = '/autodl-fs/data/CDIUNet/results'
-        new_base_dir = '/root/autodl-tmp/CDIUNet/results'
+        original_base_dir = '/autodl-fs/data/MSCB-UNet/results'
+        new_base_dir = '/root/autodl-tmp/MSCB-UNet/results'
         
         # Ensure the new directory exists
         os.makedirs(new_base_dir, exist_ok=True)
@@ -64,7 +64,7 @@ class setting_config:
                 print(f"Warning: Could not create symlink: {e}")
     else:
         # Use original path in non-AutoDL environment
-        base_dir = '/autodl-fs/data/CDIUNet/results'
+        base_dir = '/autodl-fs/data/MSCB-UNet/results'
 
     # Working directory configuration
     work_dir = os.path.join(base_dir, 
